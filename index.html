@@ -1,0 +1,58 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>Golf Score Keeper</title>
+    <script src="http://www.google.com/jsapi"></script>
+    <script>
+      google.load("jquery", "1.4.1");
+    </script>
+  </head>
+
+  <body>
+    <form action="upload.html" method="get">
+        <div>
+          <label for="1">
+            Hole 1
+          </label>
+          <input type="number" min="1" value="4" name="1" size="2" step="1">
+          </input>
+        </div>
+
+        <div>
+          <label for="2">
+            Hole 2
+          </label>
+          <input type="number" min="1" value="4" name="2" size="2" step="1">
+        </input>
+        </div>
+
+        <div>
+          <input type="email" placeholder="Enter your email address" size="40">
+          </input>
+        </div>
+
+        <div>
+          <input type="text" id="lat_field" name="latitude">
+          </input>
+          <input type="text" id="long_field" name="longitude">
+          </input>
+        </div>
+
+        <script>
+          navigator.geolocation.getCurrentPostiion(
+            function(pos){
+              $("#lat_field").val(pos.coords.latitude);
+              $("#long_field").val(pos.coords.longitude);
+            }
+          );
+        </script>
+
+        <div>
+          <input type="submit" value="Upload Score">
+          </input>
+        </div>
+
+    </form>
+
+  </body>
+</html>
